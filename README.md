@@ -1,11 +1,11 @@
-#Commit Checker 
+# Commit Checker 
 
 This tool runs through commits made over the past year(by default) and returns
 the average commit per day, and total.
 
-#How to run it 
+# How to run it 
 
-#Clone the repo 
+# Clone the repo 
 
 Run ```bundle install``` or `bundle` to install dependencies
 
@@ -35,5 +35,5 @@ Example:
 
 `desc` returns all commits made for each day over the past year in descending order
 
-#When in doubt about the flags, run `-h ` for more detail
+### When in doubt about the flags, run `-h ` for more detail
 
