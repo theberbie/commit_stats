@@ -14,13 +14,13 @@ You can pass the following flags to your `ruby script.rb` command:
 
 `-w` or `--weeks` + number of weeks desired to print
 
+ If no weeks flag is specified, it defaults to 52 weeks(1 year)
+
 Example:
 
 `ruby script.rb -w 20` will print commits made in the past 20 weeks along with daily average
 
 `-r` or `--repo` + the name of the owner of the github repository and the actual repository
-
- If no weeks flag is specified, it defaults to 52 weeks(1 year)
 
  Example:
 
@@ -32,6 +32,6 @@ Example:
 
 `-asc` returns all commits made for each day over the past year in ascending order
 
-`desc` returns all commits made for each day over the past year in descending order
+`-desc` returns all commits made for each day over the past year in descending order
 
 ### When in doubt about the flags, add `-h` to `ruby script.rb` for more detail
