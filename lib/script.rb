@@ -10,12 +10,13 @@ average_commit = {}
 max = 0
 
 #default values in case flags aren't passed
-options = {}
-options[:repo] = "kubernetes/kubernetes"
-options[:weeks] = 0
-options[:show_max] = false
-options[:ascending] = true
-options[:descending] = false
+options = {
+  repo: "kubernetes/kubernetes",
+  weeks: 0,
+  show_max: false,
+  ascending: true,
+  descending: false
+}
 
 #parse flags passed in command line
 def options(options)
@@ -30,12 +31,16 @@ def options(options)
       options[:show_max] = true
     end
     opts.on("-asc", "--asc true", "Sorts by least to busiest") do |max|
-      options[:acending] = true
-      options[:descending] = false
+      options = {
+        ascending: true,
+        descending: false
+      }
     end
     opts.on("-desc", "--desc day", "Sorts by busiest to least busy") do |max|
-      options[:descending] = true
-      options[:ascending] = false
+      options = {
+        ascending: false,
+        descending: true
+      }
     end
     opts.on('-h', '--help', 'Display this screen') do
       puts opts
@@ -112,7 +117,7 @@ def print_result(average_commit, days, days_map, options)
     puts "Day: #{idx} Average: #{average_commit[idx]}, Total: #{days_map[idx]}"
   else
     average_commit.keys.each do |day|
-      puts "#{day}, average: #{average_commit[day]}, total: #{days_map[day]}"
+      puts "#{day}, Average: #{average_commit[day]}, Total: #{days_map[day]}"
     end
   end
 end
