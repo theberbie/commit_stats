@@ -4,18 +4,20 @@ require 'httparty'
 require 'json'
 require 'optparse'
 
-  days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
-  days_map = {}
-  average_commit = {}
-  max = 0
+days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+days_map = {}
+average_commit = {}
+max = 0
 
-  options = {}
-  options[:repo] = "kubernetes/kubernetes"
-  options[:weeks] = 0
-  options[:show_max] = false
-  options[:ascending] = true
-  options[:descending] = false
+#default values in case flags aren't passed
+options = {}
+options[:repo] = "kubernetes/kubernetes"
+options[:weeks] = 0
+options[:show_max] = false
+options[:ascending] = true
+options[:descending] = false
 
+#parse flags passed in command line
 def options(options)
   OptionParser.new do |opts|
     opts.on('-r', '--repo owner/repo format', 'adds repo to path') do |repo|
@@ -55,17 +57,16 @@ new_results_array = fetch_repo(options)
 start = 52 - options[:weeks].to_i
 weeks_back = 52 - start
 
-#return amount of weeks specified by user
 def fetch_weeks_commits(new_results_array, weeks_back)
   weeks_back.times do
-    new_results_array = new_results_array.pop
+    new_results_array.pop
   end
   new_results_array
- puts "size is #{new_results_array.size}"
 end
 
 fetch_weeks_commits(new_results_array, weeks_back)
 
+#build hash to keep track of total commits over the year for each day of the week
 def build_map(average_commit, days, days_map, stat)
   stat['days'].each_with_index do |day, index|
     if days_map[days[index]] === nil
@@ -89,6 +90,7 @@ new_results_array.each do |stat|
   build_map(average_commit, days, days_map, stat)
 end
 
+#sort results based on the flags user pass in
 def sort_result(average_commit, options)
   if options[:ascending]
     average_commit = Hash[average_commit.sort_by {|k, v| v}]
