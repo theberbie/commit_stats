@@ -7,9 +7,9 @@ the average commit per day, and total.
 
 # Clone the repo 
 
-Run ```bundle install``` or `bundle` to install dependencies
+Run ```bundle install``` or `bundle` from the root of the directory to install dependencies
 
-From your command line, run ```ruby script.rb``` to start the script
+From your command line, navigate to the `lib` directory, run `ruby script.rb` to start the script
 
 You can pass it the following flags:
 
