@@ -16,7 +16,7 @@ You can pass the following flags to your `ruby script.rb` command:
 
 Example:
 
-`ruby script.rb -w 20` will print commits made in the past 20 days along with daily average
+`ruby script.rb -w 20` will print commits made in the past 20 weeks along with daily average
 
 `-r` or `--repo` + the name of the owner of the github repository and the actual repository
 
