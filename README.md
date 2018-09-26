@@ -10,13 +10,13 @@ The dependencies are listed at the top of the file, so no need to run `bundle` o
 
 From your command line, navigate to the `lib` directory, run `ruby script.rb` to start the script
 
-You can pass it the following flags:
+You can pass the following flags to your `ruby script.rb` command:
 
 `-w` or `--weeks` + number of weeks desired to print
 
 Example:
 
-`ruby script.rb -w 20` will print commits made in the past 20 days along with daily average 
+`ruby script.rb -w 20` will print commits made in the past 20 days along with daily average
 
 `-r` or `--repo` + the name of the owner of the github repository and the actual repository
 
