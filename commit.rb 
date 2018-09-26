@@ -1,0 +1,9 @@
+class Commit
+ include HTTParty
+ base_uri 'api.github.com'
+
+  def initialize(repo, length)
+   @options =
+  end
+
+end
