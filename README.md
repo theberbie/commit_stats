@@ -35,5 +35,5 @@ Example:
 
 `desc` returns all commits made for each day over the past year in descending order
 
-### When in doubt about the flags, run `-h ` for more detail
+### When in doubt about the flags, add `-h` to `ruby script.rb` for more detail
 
